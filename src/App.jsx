@@ -18,12 +18,12 @@ function App() {
         // get token from browser searchbar 
         const hash = getTokenFromResponse();
 
-        console.log(hash);
+       
 
         // remove the hash token from the response object. 
         window.location.hash = "";
         let generatedToken = hash.access_token;
-        console.log(generatedToken); 
+        
         if (generatedToken) {
             dispatch({
                 type: "SET_TOKEN",
@@ -37,7 +37,7 @@ function App() {
             s.setAccessToken(generatedToken);
 
 
-             s.getPlaylist("37i9dQZEVXcKBPZx4Mmz8h").then((response) =>
+             s.getPlaylist("0n1GaPbpUi9DEmdQSQ0WGf").then((response) =>
                 dispatch({
                     type: "SET_DISCOVER_WEEKLY",
                     discover_weekly: response,
@@ -64,14 +64,12 @@ function App() {
             });
 
         });
-        console.log("I have generated a new token", token)
-
         //
 
     }, [])
 
     return (
-        <div>
+        <div >
             {!token && <Login />}
            { token  && <Player spotify={s}/>}
         </div>

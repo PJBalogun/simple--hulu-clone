@@ -17,14 +17,14 @@ function SideBar() {
           alt=""
         />
         
-        <SidebarOption title='Home' Icon={HomeIcon}/>
-        <SidebarOption title='Search' Icon={SearchIcon}/>
-        <SidebarOption title='Your Library' Icon={LibraryMusicIcon}/>
+        <SidebarOption title='Home' Icon={HomeIcon} key={1}/>
+        <SidebarOption title='Search' Icon={SearchIcon} key={2}/>
+        <SidebarOption title='Your Library' Icon={LibraryMusicIcon} key={3}/>
         <hr />
         <strong className="sidebar__title">PLAYLISTS</strong>
 
-        {playlists?.items?.map((playlist) => (
-          <SidebarOption title={playlist.name} />
+        {playlists?.items?.map((playlist,index) => (
+          <SidebarOption title={playlist.name} key = {index}/>
         ))}
       </div>
 

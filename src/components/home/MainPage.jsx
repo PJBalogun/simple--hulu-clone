@@ -9,7 +9,7 @@ import SongRow from "./SongRow"
 
 const MainPage = ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useSpotifyStateValue();
-  console.log(discover_weekly)
+
   return (
     <div className="body">
            <Header spotify={spotify} />
@@ -29,8 +29,8 @@ const MainPage = ({ spotify }) => {
           <FavoriteIcon fontSize="large" />
           <MoreHorizIcon />
         </div>
-        {discover_weekly?.tracks.items.map((item) => (
-          <SongRow track={item.track} />
+        {discover_weekly?.tracks.items.map((item, index) => (
+          <SongRow track={item.track} key={index}/>
         ))}
       </div>
       </div>
